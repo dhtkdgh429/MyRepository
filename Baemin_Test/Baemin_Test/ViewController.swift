@@ -20,7 +20,7 @@ struct Course {
 
 
 class ViewController: UIViewController {
-
+    
     var courseList = [
         
         Course(title: "Swift4를 활용한 iOS 앱 개발 CAMP", imageName: "course0", startDate: Date(), endDate: Date(), tags: ["iOS", "Swift4"], location: "리틀스타 10-A"),
@@ -30,8 +30,6 @@ class ViewController: UIViewController {
         Course(title: "Node.js로 구현하는 쇼핑몰 프로젝트 CAMP", imageName: "course4", startDate: Date(), endDate: Date(), tags: ["iOS", "Swift4"], location: "리틀스타 10-A")
         
     ]
-    
-    
     
     
     
@@ -57,8 +55,6 @@ class ViewController: UIViewController {
         f.dateFormat = "M월 d일(E)"
         return f
     }()
-    
-    
     
     
     
@@ -105,19 +101,14 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 처음 시작 시 mover 크기를 전체 메뉴 크기로 설정
         selectMenu(firstButton)
-     
+        
     }
-
+    
     // 무한 스크롤 설정
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -153,10 +144,6 @@ class ViewController: UIViewController {
             timer?.resume()
         }
     }
-    
-    
-    
-    
     
 }
 

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CB4C348220358F0B00413B01 /* CourseSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4C348120358F0B00413B01 /* CourseSummaryTableViewCell.swift */; };
-		CB4E1A31207FFAD300589E25 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB9B7632202DA2B200E959E2 /* Info.plist */; };
-		CB4E1A32207FFBDC00589E25 /* Baemin_Test.app in Resources */ = {isa = PBXBuildFile; fileRef = CB9B7623202DA2B200E959E2 /* Baemin_Test.app */; };
 		CB8293AF20316C6000643D9A /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8293AE20316C6000643D9A /* BannerCollectionViewCell.swift */; };
 		CB8293B1203181FA00643D9A /* CourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8293B0203181FA00643D9A /* CourseCollectionViewCell.swift */; };
 		CB9B7627202DA2B200E959E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B7626202DA2B200E959E2 /* AppDelegate.swift */; };
@@ -58,7 +56,7 @@
 		CB9B761A202DA2B200E959E2 = {
 			isa = PBXGroup;
 			children = (
-				CB9B7625202DA2B200E959E2 /* UI_Test */,
+				CB9B7625202DA2B200E959E2 /* Baemin_Test */,
 				CB9B7624202DA2B200E959E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,7 +69,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CB9B7625202DA2B200E959E2 /* UI_Test */ = {
+		CB9B7625202DA2B200E959E2 /* Baemin_Test */ = {
 			isa = PBXGroup;
 			children = (
 				CB8293AD20316C4100643D9A /* cell */,
@@ -83,7 +81,7 @@
 				CB9B7632202DA2B200E959E2 /* Info.plist */,
 				CB9D102F203404FF00C336D7 /* DetailViewController.swift */,
 			);
-			path = UI_Test;
+			path = Baemin_Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,7 +120,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CB9B761E202DA2B200E959E2 /* Build configuration list for PBXProject "UI_Test" */;
+			buildConfigurationList = CB9B761E202DA2B200E959E2 /* Build configuration list for PBXProject "Baemin_Test" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -145,8 +143,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB4E1A32207FFBDC00589E25 /* Baemin_Test.app in Resources */,
-				CB4E1A31207FFAD300589E25 /* Info.plist in Resources */,
 				CB9B7631202DA2B200E959E2 /* LaunchScreen.storyboard in Resources */,
 				CB9B762E202DA2B200E959E2 /* Assets.xcassets in Resources */,
 				CB9B762C202DA2B200E959E2 /* Main.storyboard in Resources */,
@@ -302,14 +298,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LZZVJD724V;
-				INFOPLIST_FILE = "$(SRCROOT)/UI_Test/Info.plist";
+				DEVELOPMENT_TEAM = 7Q8VF9RM3U;
+				INFOPLIST_FILE = Baemin_Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "OhCom.UI-Test";
+				PRODUCT_BUNDLE_IDENTIFIER = "OhCom.Baemin-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -319,14 +313,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LZZVJD724V;
-				INFOPLIST_FILE = "$(SRCROOT)/UI_Test/Info.plist";
+				DEVELOPMENT_TEAM = 7Q8VF9RM3U;
+				INFOPLIST_FILE = Baemin_Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "OhCom.UI-Test";
+				PRODUCT_BUNDLE_IDENTIFIER = "OhCom.Baemin-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,7 +327,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CB9B761E202DA2B200E959E2 /* Build configuration list for PBXProject "UI_Test" */ = {
+		CB9B761E202DA2B200E959E2 /* Build configuration list for PBXProject "Baemin_Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB9B7633202DA2B200E959E2 /* Debug */,

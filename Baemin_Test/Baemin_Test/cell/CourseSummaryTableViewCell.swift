@@ -22,6 +22,4 @@ class CourseSummaryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var locationLabel: UILabel!
     
-    
-    
 }
