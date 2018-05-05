@@ -1,5 +1,5 @@
 # MyRepository
 
-1. Baemin_Test: is UI App example.
-2. Weather_Test: is weather App used to SKT API Servise.
-3. Memo_Test: is  accumulating and listing App used to coredata.
+1. Baemin_App: is UI example App.
+2. Memo_App: is accumulating and listing App used to CoreData.
+3. Weather_App: is weather App used to SKT API Servise.
