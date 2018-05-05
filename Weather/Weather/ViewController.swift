@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Weather
 //
-//  Created by Keun young Kim on 2018. 2. 28..
-//  Copyright © 2018년 Keun young Kim. All rights reserved.
+//  Created by Oh Sangho on 2018. 2. 28..
+//  Copyright © 2018년 Oh Sangho. All rights reserved.
 //
 
 import UIKit
