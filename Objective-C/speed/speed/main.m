@@ -25,21 +25,21 @@ id buf[ARRAYSIZE];
 }
 
 - (id)initWithNext:(id)obj;
-//- (void)dealloc;
+- (void)dealloc;
 @end
 
 @implementation Cell
 
 - (id)initWithNext:(id)obj {
     self = [super init];
-    //    next = [obj retain];
+        next = [obj retain];
     return self;
 }
 
-//- (void)dealloc {
-//    [next release];
-//    [super dealloc];
-//}
+- (void)dealloc {
+    [next release];
+    [super dealloc];
+}
 
 @end
 
@@ -49,24 +49,23 @@ int main(void)
     
     srandom(SEED);
     for (i = 0; i < LOOP; i++) {
-        //        id pool = [[NSAutoreleasePool alloc] init];
+                id pool = [[NSAutoreleasePool alloc] init];
         for (j = 0; j < LOOP; j++) {
             int idx = random() & ARRAYMASK;
             if (buf[idx] != nil && (random() & ACCIDENT) == 0) {
                 
-                //            [buf[idx] autorelease];
+                            [buf[idx] autorelease];
                 buf[idx] = nil;
             }else {
                 id t = buf[idx];
                 buf[idx] = [[Cell alloc] initWithNext: t];
-                //            [t autorelease];
+                            [t autorelease];
             }
         }
-//        [pool drain];
+        [pool drain];
     }
     return 0;
 }
-    // ARC 사용으로 확인 불가
     
     
     

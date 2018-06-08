@@ -237,6 +237,7 @@
 		CB06659920C926E100BC8870 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZZVJD724V;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -246,6 +247,7 @@
 		CB06659A20C926E100BC8870 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZZVJD724V;
 				PRODUCT_NAME = "$(TARGET_NAME)";
