@@ -66,7 +66,7 @@ int main(void)
     }
     return 0;
 }
-    
+    // ARC 사용으로 확인 불가
     
     
     
