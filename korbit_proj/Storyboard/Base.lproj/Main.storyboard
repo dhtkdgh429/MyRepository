@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="korbit_proj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nrc-9B-0sa">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Title" id="4D2-a6-kAF"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DCw-VY-rdb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainTableViewCell" rowHeight="80" id="7Zo-fm-GH1" customClass="MainTableViewCell" customModule="korbit_proj" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Zo-fm-GH1" id="JR4-W3-zzf">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndC-NU-IRn">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="CTf-IM-XX8"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zLM-Au-atR"/>
+                                    <barButtonItem title="Item" id="jg4-Us-Pql"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="z61-Zs-OeK"/>
+                                    <barButtonItem title="Item" id="UBO-bO-Xkk"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Xan-h2-rtV"/>
+                                    <barButtonItem title="Item" id="87Z-RS-68D"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DCw-VY-rdb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="4sI-wk-ZVg"/>
+                            <constraint firstItem="DCw-VY-rdb" firstAttribute="top" secondItem="nrc-9B-0sa" secondAttribute="bottom" id="6Q6-c1-lUu"/>
+                            <constraint firstItem="ndC-NU-IRn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RPh-9f-w6d"/>
+                            <constraint firstItem="ndC-NU-IRn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Xcr-x4-fEH"/>
+                            <constraint firstItem="DCw-VY-rdb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Zi5-Gp-jbd"/>
+                            <constraint firstItem="nrc-9B-0sa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cRz-fj-WBa"/>
+                            <constraint firstItem="nrc-9B-0sa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dd9-Hq-p0l"/>
+                            <constraint firstItem="ndC-NU-IRn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mOS-s9-lFe"/>
+                            <constraint firstItem="ndC-NU-IRn" firstAttribute="top" secondItem="DCw-VY-rdb" secondAttribute="bottom" id="un7-Ox-Oku"/>
+                            <constraint firstItem="nrc-9B-0sa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="w3Y-Qd-sTP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2562.4000000000001" y="106.59670164917542"/>
+        </scene>
+        <!--Favor View Controller-->
+        <scene sceneID="i9d-0l-Voo">
+            <objects>
+                <viewController id="Tr5-JT-DdY" customClass="FavorViewController" customModule="korbit_proj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ilt-S2-XM4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="i96-Vt-S84"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dCX-Fh-AKo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-132" y="-701"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="dVY-zB-lel">
+            <objects>
+                <viewController id="2ha-4N-Kww" customClass="ChatViewController" customModule="korbit_proj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dft-eS-xex">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jFl-Oz-O1m"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sgK-jd-QdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-132" y="107"/>
+        </scene>
+        <!--Set View Controller-->
+        <scene sceneID="AU0-yN-zap">
+            <objects>
+                <viewController id="IOe-VT-IVY" customClass="SetViewController" customModule="korbit_proj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wRy-St-YgO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="aLo-44-yrz"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clF-1x-Pry" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-132" y="888"/>
+        </scene>
+    </scenes>
+</document>
