@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         // navigation bar border 하단 표시하는 법 확인.
+        // 진행중.
         
     }
     
