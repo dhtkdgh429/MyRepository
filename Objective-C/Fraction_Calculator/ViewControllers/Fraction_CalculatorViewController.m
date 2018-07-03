@@ -109,21 +109,29 @@
 - (IBAction) clickPlus
 {
     [self processOp: '+'];
+    [self storeFracPart];
+    [myCalculator performOperation: op];
 }
 
 - (IBAction) clickMinus
 {
     [self processOp: '-'];
+    [self storeFracPart];
+    [myCalculator performOperation: op];
 }
 
 - (IBAction) clickMultiply
 {
     [self processOp: '*'];
+    [self storeFracPart];
+    [myCalculator performOperation: op];
 }
 
 - (IBAction) clickDivide
 {
     [self processOp: '/'];
+    [self storeFracPart];
+    [myCalculator performOperation: op];
 }
 
 // 기타 키
