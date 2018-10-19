@@ -46,18 +46,18 @@ class Summoner: NSObject {
 class SummonerModel: NSObject {
     
     public var items = [Summoner]()
-    init?(data: Data) {
-        do {
-            if let json = try JSONSerialization.jsonObject(with: data) as? [[String: AnyObject]] {
-                
-                self.items = json.map { Summoner(json: $0) }
-                
-            }
-        } catch {
-            print("Error deserializing JSON: \(error)")
-            return nil
-        }
-    }
+//    init?(data: Data) {
+//        do {
+//            if let json = try JSONSerialization.jsonObject(with: data) as? [[String: AnyObject]] {
+//                
+//                self.items = json.map { Summoner(json: $0) }
+//                
+//            }
+//        } catch {
+//            print("Error deserializing JSON: \(error)")
+//            return nil
+//        }
+//    }
     
     init?(json: [[String: AnyObject]]) {
         //print(json)

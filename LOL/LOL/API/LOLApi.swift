@@ -42,8 +42,6 @@ class LOLApi : WebService {
         }
  
         
-        //let url = WebService.init().getServiceUrl(string: "/lol/summoner/v3/summoners/by-name/\(name)")
-        
         APIManager.sharedManager.request(url, encoding:JSONEncoding.default).responseJSON { (response) in
             #if DEBUG
             print("Request: \(String(describing: response.request))")   // original url request
@@ -66,6 +64,42 @@ class LOLApi : WebService {
                 onCompletion(result)
             }
         }
-        
+        /*
+        // 요청 시 debug sample
+        Request: Optional(https://kr.api.riotgames.com/lol/summoner/v3/summoners/by-name/%EC%BD%A9%EC%9D%B4%EB%88%88%EB%86%92%EC%9D%B4%EA%B5%90%EC%9C%A1?api_key=RGAPI-3a4d111e-bd21-4d4f-a2f8-97d14f53eb1a)
+        Response: Optional(<NSHTTPURLResponse: 0x600002b6caa0> { URL: https://kr.api.riotgames.com/lol/summoner/v3/summoners/by-name/%EC%BD%A9%EC%9D%B4%EB%88%88%EB%86%92%EC%9D%B4%EA%B5%90%EC%9C%A1?api_key=RGAPI-3a4d111e-bd21-4d4f-a2f8-97d14f53eb1a } { Status Code: 200, Headers {
+        Connection =     (
+        "keep-alive"
+        );
+        "Content-Encoding" =     (
+        gzip
+        );
+        "Content-Length" =     (
+        148
+        );
+        "Content-Type" =     (
+        "application/json;charset=utf-8"
+        );
+        Date =     (
+        "Fri, 19 Oct 2018  09:43:59 GMT"
+        );
+        Vary =     (
+        "Accept-Encoding"
+        );
+        "X-App-Rate-Limit" =     (
+        "20:1,100:120"
+        );
+        "X-App-Rate-Limit-Count" =     (
+        "1:1,2:120"
+        );
+        "X-Method-Rate-Limit" =     (
+        "2000:60"
+        );
+        "X-Method-Rate-Limit-Count" =     (
+        "2:60"
+        );
+        } })
+        Result: SUCCESS
+        */
     }
 }

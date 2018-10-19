@@ -14,20 +14,24 @@ class ViewController: UIViewController {
     let lolApi = LOLApi()
     public var summonerModel : SummonerModel?
     
+    // callFindSummoner 서비스로 찾은 id 값
+    public var foundId:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        callFindSummoner()
-        
+        // name으로 id 찾는 서비스 호출.
+        callFindSummoner(userName: "콩이눈높이교육")
         
     }
     
-    func callFindSummoner() {
+    // userName(= summonerName)으로 id 값 찾기.
+    func callFindSummoner(userName: String) {
         
         //lolApi.getFindSummoner(name: "콩이눈높이교육")
-        lolApi.getFindSummoner(name: "콩이눈높이교육") { (responseObject: WebServiceResult?) in
+        lolApi.getFindSummoner(name: userName) { (responseObject: WebServiceResult?) in
             
-            // check
+            // error check
             if(responseObject?.errorOccurred == true) {
                 #if DEBUG
                 print("Please Check to Error Message OR Network status")
@@ -45,15 +49,13 @@ class ViewController: UIViewController {
                 else
                 {
                     // model에 파싱된 json 데이터 insert
-                    //let data = WebServiceResult().jsonToString(json: json as AnyObject)
-                    
                     if let summoner = SummonerModel(json: [json as [String : AnyObject]]) {
+                        // 혹시 모르니, 일단 summonerModel 전역으로 빼놓고.
                         self.summonerModel = summoner
+                        self.foundId = summoner.items[0].id
                         
                     }
                     
-                    // set
-                    //self.infoMaster._infoPatient.myPatient = patient.items
                 }
             }
         }
