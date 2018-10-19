@@ -29,3 +29,24 @@ class MainViewController: UIViewController {
 
 }
 
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return coinList.count   // cell by coin count. forecastList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell") as! MainTableViewCell
+        
+        
+        let target = coinList[indexPath.row]
+        cell.coinImg.image = UIImage(named: target.coinCode)
+        cell.coinName.text = target.tCoinName    // e.g coinCode: ltc_krw tcoinName = LiteCoin
+        cell.coinKRW.text = target.tCoinKRW         // target.tcoinKRW = KRW 변환
+        cell.coinPrice.text = target.tCoinPrice
+        cell.coinRate.text = target.tCoinRate
+        
+        return cell
+    }
+    
+}

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8F6992D91C4E3DCFD86A99B8 /* Pods_korbit_proj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0615A53F63C18BBA26A06D3B /* Pods_korbit_proj.framework */; };
 		CB05047120B56EB100D98093 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB05047020B56EB100D98093 /* MainTableViewCell.swift */; };
+		CB2176D620EB99610076ACB0 /* CoinImgs.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB2176D520EB99610076ACB0 /* CoinImgs.xcassets */; };
 		CB4A18E920B543470054F022 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB4A18E820B543470054F022 /* GoogleService-Info.plist */; };
 		CB4A18EF20B54D4F0054F022 /* FavorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4A18EE20B54D4F0054F022 /* FavorViewController.swift */; };
 		CB4A18F120B54D710054F022 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4A18F020B54D710054F022 /* ChatViewController.swift */; };
@@ -25,6 +26,7 @@
 		40CE8B57BFEDEA986AD96DA2 /* Pods-korbit_proj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-korbit_proj.release.xcconfig"; path = "Pods/Target Support Files/Pods-korbit_proj/Pods-korbit_proj.release.xcconfig"; sourceTree = "<group>"; };
 		C7FEF43C5AB3375AD34D1EF8 /* Pods-korbit_proj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-korbit_proj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-korbit_proj/Pods-korbit_proj.debug.xcconfig"; sourceTree = "<group>"; };
 		CB05047020B56EB100D98093 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		CB2176D520EB99610076ACB0 /* CoinImgs.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CoinImgs.xcassets; sourceTree = "<group>"; };
 		CB4A18E820B543470054F022 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB4A18EE20B54D4F0054F022 /* FavorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorViewController.swift; sourceTree = "<group>"; };
 		CB4A18F020B54D710054F022 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				CB9F3F7420B51F7E000FE5C9 /* Assets.xcassets */,
+				CB2176D520EB99610076ACB0 /* CoinImgs.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				CB4A18E920B543470054F022 /* GoogleService-Info.plist in Resources */,
 				CB9F3F7520B51F7E000FE5C9 /* Assets.xcassets in Resources */,
 				CB9F3F7320B51F7D000FE5C9 /* Main.storyboard in Resources */,
+				CB2176D620EB99610076ACB0 /* CoinImgs.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
