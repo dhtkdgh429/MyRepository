@@ -1,3 +1,3 @@
 # MyRepository
 
-just my test
+just my test project
