@@ -33,7 +33,7 @@ class LOLApi : WebService {
         }
         // isEncoded 값이 true 이면, url 넣고 서비스 수행. 아니면 리턴.
         if (isEncoded == true) {
-            url = WebService.init().getServiceUrl(string: "/lol/summoner/v3/summoners/by-name/\(urlEncodedName)")
+            url = WebService().getServiceUrl(string: "/lol/summoner/v3/summoners/by-name/\(urlEncodedName)")
         } else {
             #if DEBUG
             print("Fail to URL Insert")
@@ -42,7 +42,7 @@ class LOLApi : WebService {
         }
  
         
-        APIManager.sharedManager.request(url, encoding:JSONEncoding.default).responseJSON { (response) in
+        APIManager.sharedManager.request(url).responseJSON { (response) in
             #if DEBUG
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
@@ -50,11 +50,11 @@ class LOLApi : WebService {
             #endif
             switch (response.result) {
             case .success:
-                let json = response.result.value as AnyObject
+                let json = response.result.value
                 #if DEBUG
                 print("JSON: \(String(describing: json))")
                 #endif
-                let result = WebService.ParseServiceResult(json as! [String : AnyObject], error: nil)
+                let result = WebService.ParseServiceResult(json, error: nil)
                 onCompletion(result)
             case .failure(let error):
                 #if DEBUG
@@ -102,4 +102,36 @@ class LOLApi : WebService {
         Result: SUCCESS
         */
     }
+    
+    func getLeagueBySummonerId(id: Int, onCompletion: @escaping WebServiceResponse) {
+        
+        // https://kr.api.riotgames.com/lol/league/v3/positions/by-summoner/3175160
+        let url = WebService().getServiceUrl(string: "/lol/league/v3/positions/by-summoner/\(id)")
+        
+        APIManager.sharedManager.request(url).responseJSON { (response) in
+            #if DEBUG
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            #endif
+            switch (response.result) {
+            case .success:
+                let json = response.result.value
+                #if DEBUG
+                print("JSON: \(String(describing: json))")
+                #endif
+                let result = WebService.ParseServiceResult(json, error: nil)
+                onCompletion(result)
+            case .failure(let error):
+                #if DEBUG
+                print(error)
+                #endif
+                let result = WebService.ParseServiceResult(nil, error: error)
+                onCompletion(result)
+            }
+        }
+        
+    }
+    
+    
 }

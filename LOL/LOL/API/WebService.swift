@@ -27,17 +27,15 @@ class WebService: NSObject {
     func getServiceUrl(string : String) -> String {
     
         // LOL API Login ID 및 Api Key
-        //let loginId:String = "dhtkdgh429"
-        let apiKey = "RGAPI-3a4d111e-bd21-4d4f-a2f8-97d14f53eb1a"
+        let apiKey = "RGAPI-1cb7c6d0-79b4-48f9-9c01-9fbd8cc79712"
         
         // URL 생성
         let url = "https://kr.api.riotgames.com\(string)?api_key=\(apiKey)"
 
-        //return "\(url)\(string)"
         return url
     }
     
-    static func ParseServiceResult(_ json: [String:AnyObject]?, error: Error?) -> WebServiceResult {
+    static func ParseServiceResult(_ json: Any?, error: Error?) -> WebServiceResult {
         let parsedResult = WebServiceResult()
         
         if (error != nil) {
@@ -50,40 +48,113 @@ class WebService: NSObject {
                 return (parsedResult)
             }
             // items 초기화
-            parsedResult.items = [String:AnyObject]()
+            //parsedResult.items2 = [[String:Any]]()
             
+            // any 자료형의 json data를 if로 각 형태에 따라 dictionary or array로 형변환 필요.
             
-            //parsedResult.json = WebServiceResult().serialize(json: json as! String)
-            
-            // json data key 기준 sorting 수행.
-            let sortedJSON = json!.sorted { $0.0 < $1.0 }
-            
-            for item in sortedJSON {
-                
-                parsedResult.appendKeyValue(key: item.key, value: item.value)
-                
-            }
-            
-            // json data >> string 변환
-            parsedResult.json = parsedResult.jsonToString(json: (parsedResult.items as AnyObject) as! [String : AnyObject])
-            
-            
-            if #available(iOS 10.0, *) {
-                
-                /*
-                // 위에서 json과 items 한번에 처리하도록 수정. for문 때문에..
-                // items 초기화
-                parsedResult.items = [[String:AnyObject]]()
-                
-                let itemsArray:[String:AnyObject] = json!
-                
-                 dictionary형태의 json data를 key-value로 분리하여 반환.
-                for item in itemsArray {
+            /*
+            if (object_getClass(json)!.description().range(of: "Dictionary") != nil) {
+                let test = json as! [String:Any]
+                let sortedJSON = test.sorted { $0.0 < $1.0 }
+
+                for item in sortedJSON {
 
                     parsedResult.appendKeyValue(key: item.key, value: item.value)
 
                 }
-                */
+                // json data >> string 변환
+                parsedResult.json = parsedResult.jsonToString(json: parsedResult.items as AnyObject)
+            }
+            
+            if (object_getClass(json)!.description().range(of: "NSArray") != nil) { // NSCFArray
+                let test = json as! [[String:Any]]
+                var resultJSON = [[String:Any]]()
+                
+//                var index:Int = 0
+                for item in test {
+                    
+                    let sortedJSON = item.sorted { $0.key < $1.key }
+                    
+                    for (key, value) in sortedJSON {
+                        
+                        parsedResult.appendKeyValue(key: key, value: value)
+                        
+                    }
+                    
+//                    parsedResult.items.sorted { $0.0 < $1.0 }
+                    parsedResult.appendItems(items: parsedResult.items)
+//                    index = 0
+                }
+                // json data >> string 변환
+                parsedResult.json = parsedResult.jsonToString(json: parsedResult.items2 as AnyObject)
+            }
+            */
+            
+            //parsedResult.json = WebServiceResult().serialize(json: json as! String)
+            // json data key 기준 sorting 수행.
+            
+            //let test = json as! [[String:Any]]
+            
+            
+            //let test1 = test.map { $0.first?.key }
+            
+            
+            //let tmpJSON = json as! [[String:Any]]
+            //let sortedJSON = tmpJSON.sorted { $0.0 < $1.0 }
+//            
+//            for item in sortedJSON {
+//
+//                parsedResult.appendKeyValue(key: item.key, value: item.value)
+//
+//            }
+            
+            // json data >> string 변환
+            //parsedResult.json = parsedResult.jsonToString(json: (parsedResult.items as AnyObject))
+            parsedResult.json = parsedResult.jsonToString(json: json as AnyObject)
+            
+            if #available(iOS 10.0, *) {
+                
+                // json data가 array 형태일 때,
+                // ex) LeaguePositionDTO api
+                if (object_getClass(json)!.description().range(of: "Array") != nil) {
+                
+                    // 위에서 json과 items 한번에 처리하도록 수정. for문 때문에..
+                    // items 초기화
+                    parsedResult.items2 = [[String:Any]]()
+                    
+                    let items:[[String:Any]] = json as! [[String:Any]]
+                    var itemsArray = [String:Any]()
+                    
+                    for item in items {
+                        itemsArray = item
+                        // dictionary형태의 json data를 key-value로 분리하여 반환.
+                        for item in itemsArray {
+                            
+                            parsedResult.appendKeyValue(key: item.key, value: item.value)
+                            
+                        }
+                        // dic 데이터 items2 arr로 추가하여 데이터 재구성
+                        parsedResult.appendItems(items: parsedResult.items)
+                    }
+                }
+                
+                // json data가 dictionary 형태일 때,
+                // ex) Summoner api
+                if (object_getClass(json)!.description().range(of: "Dictionary") != nil) {
+                    // 위에서 json과 items 한번에 처리하도록 수정. for문 때문에..
+                    // items 초기화
+                    parsedResult.items = [String:Any]()
+                    
+                    let items:[String:Any] = json as! [String:Any]
+                    
+                    // dictionary형태의 json data를 key-value로 분리하여 반환.
+                    for (key,value) in items {
+                        
+                        parsedResult.appendKeyValue(key: key, value: value)
+                        
+                    }
+                }
+                
             }
             else {
                 if(parsedResult.items.count > 0) {
@@ -96,17 +167,17 @@ class WebService: NSObject {
                 var resultItems:[Any] = []
                 for item in itemsArray {
                     
-                    var parsedItems:[String:AnyObject] = [:]
+                    var parsedItems:[String:Any] = [:]
                     if (object_getClass(item)!.description().range(of: "Dictionary") != nil) {
                         let dic = item as! NSDictionary
                         for key in dic.allKeys {
                             let skey = key as! String
                             let aval = dic.object(forKey: skey)
-                            var value:AnyObject?
-                            if (object_getClass(aval)!.description().range(of: "AnyObject") != nil) {
-                                value = aval as AnyObject
+                            var value:Any?
+                            if (object_getClass(aval)!.description().range(of: "Any") != nil) {
+                                value = aval as Any
                             }
-                            parsedItems[skey] = value as AnyObject
+                            parsedItems[skey] = value as Any
                         }
                     }
                     
@@ -114,22 +185,25 @@ class WebService: NSObject {
                     
                 }
                 
-                for result in resultItems {
-                    parsedResult.append(item: result as! [String : AnyObject])
-                }
+//                for result in resultItems {
+//                    parsedResult.append(item: result as! [String : Any])
+//                }
                 
             }
             
+            // 404 등 status 에러코드 관련 처리. 임시.
             if (object_getClass(json)!.description().range(of: "Dictionary") != nil) {
-                if let item = json as? [String:AnyObject] {
-                    ///parsedResult.items.append(item)
-                    parsedResult.errorMessage = item["ERR_MSG"] as? String
-                    parsedResult.errorOccurred = item["ERR_YN"] as? String == "Y" ? true : false
+                if let item = json as? [String:Any], item["status"] != nil {
+                    if let dic: [String:Any] = item["status"] as! [String : Any] {
+                    
+                        parsedResult.errorMessage = dic["message"] as? String
+                        parsedResult.errorStatusCode = dic["status_code"] as! Int
+                    }
                 }
             }
             
             if (object_getClass(json)!.description().range(of: "SingleObjectArray") != nil) {
-                if let items = json as? [[String:AnyObject]] {
+                if let items = json as? [[String:Any]] {
                     ///parsedResult.items.append(item)
                     let item = items[0]
                     parsedResult.errorMessage = item["ERR_MSG"] as? String
@@ -138,7 +212,7 @@ class WebService: NSObject {
             }
             
             if (object_getClass(json)!.description().range(of: "NSArray") != nil) { // NSCFArray
-                if let items = json as? [[String:AnyObject]] {
+                if let items = json as? [[String:Any]] {
                     ///parsedResult.items.append(item)
                     let item = items[0]
                     if(item["Value"] as? String == "N") {
@@ -233,36 +307,38 @@ class WebService: NSObject {
 }
 
 class WebServiceResult: NSObject {
+    var errorStatusCode:Int?
     var errorOccurred = false
     var networkTimeOut = false
     var errorMessage: String!
     var json:String!
-    var items = [String:AnyObject]()
+    var items = [String:Any]()
+    var items2 = [[String:Any]]()
     
     override init() {
         super.init()
-        self.items = [String:AnyObject]()
+        self.items = [String:Any]()
         //self.items.reserveCapacity(2)
     }
     
-    func append(item:[String:AnyObject]) {
+    func appendItems(items:[String:Any]) {
         //self.items.append(item)
-        //self.items.updateValue(, forKey: <#T##String#>)
+        //self.items.updateValue(, forKey: )
+        
+        self.items2.append(items)
     }
     
-    // key-value에서 [String:AnyObject]로 appending하도록 변환.
-    func appendKeyValue(key: String, value:AnyObject) {
+    // key-value에서 [String:Any]로 appending하도록 변환.
+    func appendKeyValue(key: String, value:Any) {
         
         // items에 appending
         //self.items.append([key:value])
         self.items.updateValue(value, forKey: key)
         
-        
     }
     
-    
     // json string을 data로 변환하여 json object로 만든다...
-    func serialize(json: String) -> [String : AnyObject] {
+    func serialize(json: String) -> [String : Any] {
         /*
          var jsonDescrypted:String = ""
          // 2018.10.04 OSH - json data 복호화
@@ -275,7 +351,7 @@ class WebServiceResult: NSObject {
         
         do {
             // data를 json ojbect로 변환
-            if let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: AnyObject] {
+            if let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
                 self.items = jsonObject
             }
         } catch {
@@ -286,7 +362,7 @@ class WebServiceResult: NSObject {
     }
     
     // json object를 string으로 변환한다.
-    func jsonToString(json: [String:AnyObject]) -> String {
+    func jsonToString(json: AnyObject) -> String {
         var jsonString:String = ""
         /*
          var jsonEncrypted:String = ""

@@ -11,12 +11,12 @@ import UIKit
 class Summoner: NSObject {
     
     /////////////////////////
-    //profileIconId    int    ID of the summoner icon associated with the summoner.
-    //name             string    Summoner name.
-    //summonerLevel    long    Summoner level associated with the summoner.
-    //revisionDate     long    Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change
-    //id               long    Summoner ID.
-    //accountId        long    Account ID.
+    //    profileIconId    int    ID of the summoner icon associated with the summoner.
+    //    name             string    Summoner name.
+    //    summonerLevel    long    Summoner level associated with the summoner.
+    //    revisionDate     long    Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change
+    //    id               long    Summoner ID.
+    //    accountId        long    Account ID.
     
     // 계정 ID.
     public var accountId:Int
@@ -31,7 +31,7 @@ class Summoner: NSObject {
     // 소환사와 관련된 소더 레벨.
     public var summonerLevel:Int
     
-    public init(json: [String: AnyObject]) {
+    public init(json: [String: Any]) {
         self.accountId         = json["accountId"] as! Int
         self.id                = json["id"] as! Int
         self.name              = (json["name"] as! String)
@@ -46,40 +46,32 @@ class Summoner: NSObject {
 class SummonerModel: NSObject {
     
     public var items = [Summoner]()
-//    init?(data: Data) {
-//        do {
-//            if let json = try JSONSerialization.jsonObject(with: data) as? [[String: AnyObject]] {
-//                
-//                self.items = json.map { Summoner(json: $0) }
-//                
-//            }
-//        } catch {
-//            print("Error deserializing JSON: \(error)")
-//            return nil
-//        }
-//    }
-    
-    init?(json: [[String: AnyObject]]) {
+
+    init?(json: [[String: Any]]) {
         //print(json)
-        
-        self.items = json.map { Summoner(json: $0) }
-        
+        do {
+            self.items = try json.map { Summoner(json: $0) }
+            
+        } catch {
+            print("Error deserializing JSON: \(error)")
+            return nil
+        }
     }
     
 }
 
 /* json data sample
  
-{
-    "profileIconId": 3378,
-    "name": "콩이눈높이교육",
-    "summonerLevel": 148,
-    "accountId": 520979,
-    "id": 3175160,
-    "revisionDate": 1539823028000
-}
+ {
+ "profileIconId": 3378,
+ "name": "콩이눈높이교육",
+ "summonerLevel": 148,
+ "accountId": 520979,
+ "id": 3175160,
+ "revisionDate": 1539823028000
+ }
  
-*/
+ */
 
 //
 //extension Dictionary where Key == Date, Value == Array<Summoner> {
