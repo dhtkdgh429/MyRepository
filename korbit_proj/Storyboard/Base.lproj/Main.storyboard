@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +23,9 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="Title" id="4D2-a6-kAF"/>
+                                    <navigationItem title="Title" id="4D2-a6-kAF">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FSy-KY-Vzj"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DCw-VY-rdb">
@@ -35,20 +38,91 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Zo-fm-GH1" id="JR4-W3-zzf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ltc_krw" translatesAutoresizingMaskIntoConstraints="NO" id="kH1-Do-DSC">
+                                                    <rect key="frame" x="32" y="11" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="1aC-Dg-C55"/>
+                                                        <constraint firstAttribute="height" constant="25" id="DdZ-va-ATF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoinName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1R-GO-J20">
+                                                    <rect key="frame" x="59" y="11" width="80" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KRW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEa-7b-7rO" userLabel="KRW">
+                                                    <rect key="frame" x="147" y="11" width="38" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoinExchange" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJ1-s2-WUa" userLabel="CoinExchange">
+                                                    <rect key="frame" x="193" y="11" width="110" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoinPrice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uur-Jy-XGi" userLabel="CoinPrice">
+                                                    <rect key="frame" x="32" y="42" width="85" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoinRate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vtn-nA-gZ4" userLabel="CoinRate">
+                                                    <rect key="frame" x="141" y="42" width="80" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="P1R-GO-J20" firstAttribute="leading" secondItem="kH1-Do-DSC" secondAttribute="trailing" constant="2" id="01n-eS-fh6"/>
+                                                <constraint firstItem="P1R-GO-J20" firstAttribute="top" secondItem="kH1-Do-DSC" secondAttribute="top" id="4Gn-u6-qAx"/>
+                                                <constraint firstItem="Vtn-nA-gZ4" firstAttribute="bottom" secondItem="uur-Jy-XGi" secondAttribute="bottom" id="4Pu-Ck-2g1"/>
+                                                <constraint firstItem="kH1-Do-DSC" firstAttribute="top" secondItem="JR4-W3-zzf" secondAttribute="topMargin" id="68L-vH-2uo"/>
+                                                <constraint firstItem="uur-Jy-XGi" firstAttribute="top" secondItem="kH1-Do-DSC" secondAttribute="bottom" constant="6" id="7CO-XH-32t"/>
+                                                <constraint firstItem="uEa-7b-7rO" firstAttribute="bottom" secondItem="kH1-Do-DSC" secondAttribute="bottom" id="8Nx-wY-pc8"/>
+                                                <constraint firstItem="kH1-Do-DSC" firstAttribute="leading" secondItem="JR4-W3-zzf" secondAttribute="leadingMargin" constant="17" id="LIJ-16-GpK"/>
+                                                <constraint firstItem="uur-Jy-XGi" firstAttribute="leading" secondItem="JR4-W3-zzf" secondAttribute="leadingMargin" constant="17" id="SG9-dB-aMe"/>
+                                                <constraint firstItem="eJ1-s2-WUa" firstAttribute="bottom" secondItem="kH1-Do-DSC" secondAttribute="bottom" id="SH2-oh-NoS"/>
+                                                <constraint firstItem="P1R-GO-J20" firstAttribute="bottom" secondItem="kH1-Do-DSC" secondAttribute="bottom" id="UUu-qT-CXd"/>
+                                                <constraint firstItem="uEa-7b-7rO" firstAttribute="top" secondItem="kH1-Do-DSC" secondAttribute="top" id="W29-EL-jOC"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Vtn-nA-gZ4" secondAttribute="trailing" constant="139" id="aLx-V3-gNg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eJ1-s2-WUa" secondAttribute="trailing" constant="57" id="bEG-VG-cGx"/>
+                                                <constraint firstItem="uEa-7b-7rO" firstAttribute="leading" secondItem="P1R-GO-J20" secondAttribute="trailing" constant="8" id="eZg-7B-FmJ"/>
+                                                <constraint firstItem="eJ1-s2-WUa" firstAttribute="leading" secondItem="uEa-7b-7rO" secondAttribute="trailing" constant="8" id="jwJ-BK-rOa"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="uur-Jy-XGi" secondAttribute="bottom" constant="3" id="kfR-fm-PaK"/>
+                                                <constraint firstItem="eJ1-s2-WUa" firstAttribute="top" secondItem="kH1-Do-DSC" secondAttribute="top" id="tmg-w3-AgV"/>
+                                                <constraint firstItem="Vtn-nA-gZ4" firstAttribute="top" secondItem="uur-Jy-XGi" secondAttribute="top" id="zkd-ml-RvA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="KRW" destination="uEa-7b-7rO" id="585-n9-c6e"/>
+                                            <outlet property="coinExchange" destination="eJ1-s2-WUa" id="3Nx-6t-3et"/>
+                                            <outlet property="coinImg" destination="kH1-Do-DSC" id="W4h-lX-off"/>
+                                            <outlet property="coinName" destination="P1R-GO-J20" id="gfO-1Q-sVI"/>
+                                            <outlet property="coinPrice" destination="uur-Jy-XGi" id="LbB-9V-0M1"/>
+                                            <outlet property="coinRate" destination="Vtn-nA-gZ4" id="d1x-t8-WXr"/>
+                                            <outlet property="liteCoin" destination="kH1-Do-DSC" id="l6j-pb-maU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="aga-rl-xnT"/>
+                                </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndC-NU-IRn">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="CTf-IM-XX8"/>
+                                    <barButtonItem title="Main" id="CTf-IM-XX8"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="zLM-Au-atR"/>
-                                    <barButtonItem title="Item" id="jg4-Us-Pql"/>
+                                    <barButtonItem title="Favor" id="jg4-Us-Pql"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="z61-Zs-OeK"/>
-                                    <barButtonItem title="Item" id="UBO-bO-Xkk"/>
+                                    <barButtonItem title="Chat" id="UBO-bO-Xkk"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Xan-h2-rtV"/>
-                                    <barButtonItem title="Item" id="87Z-RS-68D"/>
+                                    <barButtonItem title="Set" id="87Z-RS-68D"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -57,20 +131,21 @@
                             <constraint firstItem="DCw-VY-rdb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="4sI-wk-ZVg"/>
                             <constraint firstItem="DCw-VY-rdb" firstAttribute="top" secondItem="nrc-9B-0sa" secondAttribute="bottom" id="6Q6-c1-lUu"/>
                             <constraint firstItem="ndC-NU-IRn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RPh-9f-w6d"/>
+                            <constraint firstItem="ndC-NU-IRn" firstAttribute="top" secondItem="DCw-VY-rdb" secondAttribute="bottom" id="TV0-fI-8Re"/>
                             <constraint firstItem="ndC-NU-IRn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Xcr-x4-fEH"/>
                             <constraint firstItem="DCw-VY-rdb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Zi5-Gp-jbd"/>
                             <constraint firstItem="nrc-9B-0sa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cRz-fj-WBa"/>
                             <constraint firstItem="nrc-9B-0sa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dd9-Hq-p0l"/>
                             <constraint firstItem="ndC-NU-IRn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mOS-s9-lFe"/>
-                            <constraint firstItem="ndC-NU-IRn" firstAttribute="top" secondItem="DCw-VY-rdb" secondAttribute="bottom" id="un7-Ox-Oku"/>
                             <constraint firstItem="nrc-9B-0sa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="w3Y-Qd-sTP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="MOh-Kt-2JO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2562.4000000000001" y="106.59670164917542"/>
+            <point key="canvasLocation" x="-1623.2" y="106.59670164917542"/>
         </scene>
         <!--Favor View Controller-->
         <scene sceneID="i9d-0l-Voo">
@@ -100,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgK-jd-QdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-132" y="107"/>
+            <point key="canvasLocation" x="807.20000000000005" y="106.59670164917542"/>
         </scene>
         <!--Set View Controller-->
         <scene sceneID="AU0-yN-zap">
@@ -118,4 +193,7 @@
             <point key="canvasLocation" x="-132" y="888"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ltc_krw" width="209" height="209"/>
+    </resources>
 </document>

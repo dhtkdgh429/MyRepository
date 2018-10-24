@@ -10,6 +10,20 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var coinImg: UIImageView!
+    
+    @IBOutlet weak var coinName: UILabel!
+    
+    @IBOutlet weak var coinPrice: UILabel!
+    
+    @IBOutlet weak var coinRate: UILabel!
+    
+    @IBOutlet weak var KRW: UILabel!
+    
+    @IBOutlet weak var coinExchange: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
