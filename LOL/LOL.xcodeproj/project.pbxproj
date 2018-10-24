@@ -20,6 +20,7 @@
 		CB300E0E217B1A690038D199 /* LeagueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB300E0D217B1A690038D199 /* LeagueModel.swift */; };
 		CB35231C217F52C900EBB1E7 /* LeagueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB35231B217F52C900EBB1E7 /* LeagueController.swift */; };
 		CB5693032178A85300E292F8 /* lolweb.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5693022178A85300E292F8 /* lolweb.swift */; };
+		CB5842262180532700747161 /* LeagueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5842252180532700747161 /* LeagueTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		CB300E0D217B1A690038D199 /* LeagueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueModel.swift; sourceTree = "<group>"; };
 		CB35231B217F52C900EBB1E7 /* LeagueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueController.swift; sourceTree = "<group>"; };
 		CB5693022178A85300E292F8 /* lolweb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lolweb.swift; sourceTree = "<group>"; };
+		CB5842252180532700747161 /* LeagueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				CB35231B217F52C900EBB1E7 /* LeagueController.swift */,
+				CB5842252180532700747161 /* LeagueTableViewCell.swift */,
 			);
 			path = League;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				CB35231C217F52C900EBB1E7 /* LeagueController.swift in Sources */,
 				CB5693032178A85300E292F8 /* lolweb.swift in Sources */,
 				CB23771521731D280063C13D /* AppDelegate.swift in Sources */,
+				CB5842262180532700747161 /* LeagueTableViewCell.swift in Sources */,
 				CB1CB3BA2179B0AD00208CFC /* Dictionary+Extention.swift in Sources */,
 				CB23772C217323980063C13D /* WebService.swift in Sources */,
 				CB237728217321080063C13D /* LOLApi.swift in Sources */,

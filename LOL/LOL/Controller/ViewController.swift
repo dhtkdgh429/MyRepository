@@ -34,6 +34,17 @@ class ViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case .some("leagueSegue"):
+            if let vc = segue.destination as? LeagueController, let cell = sender as? UITableViewCell, let indexPath = LeagueController.indexPath(for: cell) {
+                vc.course = courseList[indexPath.item]
+            }
+        default:
+            super.prepare(for: segue, sender: sender)
+        }
+    }
+    
     @objc func btnSearchClicked() {
         
         // name으로 id 찾는 서비스 호출.

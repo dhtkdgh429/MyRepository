@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="콩이눈높이교육" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asA-sO-VuN" userLabel="InputName">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="소환사 닉네임을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asA-sO-VuN" userLabel="InputName">
                                 <rect key="frame" x="62" y="173" width="250" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="aFJ-6k-pH3"/>
@@ -27,7 +27,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소환사 닉네임을 입력하세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XN-Iz-ODv" userLabel="LabelName">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소환사 전적 조회" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XN-Iz-ODv" userLabel="LabelName">
                                 <rect key="frame" x="62" y="100" width="250" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SAo-1T-PuZ"/>
@@ -50,7 +50,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.connerRadius" value="10"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="03j-M9-IZ3" kind="show" id="xQh-VW-XYo"/>
+                                    <segue destination="03j-M9-IZ3" kind="show" identifier="leagueSegue" id="xQh-VW-XYo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,13 +105,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gEm-GD-mjH">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeagueTableViewCell" rowHeight="75" id="gEm-GD-mjH" customClass="LeagueTableViewCell" customModule="LOL" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gEm-GD-mjH" id="deE-qh-ogc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aO-sR-FrE">
+                                            <rect key="frame" x="16" y="22" width="343" height="30"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5aO-sR-FrE" firstAttribute="top" secondItem="deE-qh-ogc" secondAttribute="topMargin" constant="11" id="RK2-EP-68I"/>
+                                        <constraint firstItem="5aO-sR-FrE" firstAttribute="trailing" secondItem="deE-qh-ogc" secondAttribute="trailingMargin" id="ShV-3M-Meb"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="5aO-sR-FrE" secondAttribute="bottom" constant="12" id="ZIM-ir-gMi"/>
+                                        <constraint firstItem="5aO-sR-FrE" firstAttribute="leading" secondItem="deE-qh-ogc" secondAttribute="leadingMargin" id="jhg-i4-PZT"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="5aO-sR-FrE" id="Gtd-Nd-3Z9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -119,10 +136,13 @@
                             <outlet property="delegate" destination="03j-M9-IZ3" id="14w-JJ-J8e"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="_tableView" destination="gEm-GD-mjH" id="KNV-Le-0TT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsy-N5-lzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1994" y="88"/>
+            <point key="canvasLocation" x="1992.8" y="87.706146926536732"/>
         </scene>
     </scenes>
 </document>

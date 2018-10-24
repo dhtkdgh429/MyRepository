@@ -14,7 +14,9 @@ import UIKit
 
 
 class LeagueController: UITableViewController {
-
+    
+    @IBOutlet weak var _tableView: LeagueTableViewCell!
+    
     
     let lolApi = LOLApi()
     public var leagueModel : LeagueModel?
