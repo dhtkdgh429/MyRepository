@@ -10,7 +10,7 @@ import UIKit
 
 class LeagueTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var labelName: UILabel!
     
     
     override func awakeFromNib() {

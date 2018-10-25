@@ -27,7 +27,7 @@ class WebService: NSObject {
     func getServiceUrl(string : String) -> String {
     
         // LOL API Login ID 및 Api Key
-        let apiKey = "RGAPI-1cb7c6d0-79b4-48f9-9c01-9fbd8cc79712"
+        let apiKey = "RGAPI-c2a7e982-f146-418a-a3e9-7e98cfef7676"
         
         // URL 생성
         let url = "https://kr.api.riotgames.com\(string)?api_key=\(apiKey)"
@@ -201,7 +201,7 @@ class WebService: NSObject {
                     }
                 }
             }
-            
+            /*
             if (object_getClass(json)!.description().range(of: "SingleObjectArray") != nil) {
                 if let items = json as? [[String:Any]] {
                     ///parsedResult.items.append(item)
@@ -221,6 +221,8 @@ class WebService: NSObject {
                     }
                 }
             }
+            
+            */
         }
         
         

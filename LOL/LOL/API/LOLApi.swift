@@ -42,7 +42,7 @@ class LOLApi : WebService {
         }
  
         
-        APIManager.sharedManager.request(url).responseJSON { (response) in
+        APIManager.sharedManager.request(url).responseJSON { response in
             #if DEBUG
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
